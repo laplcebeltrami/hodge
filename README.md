@@ -1,6 +1,7 @@
 Hodge Laplacian for Graphs and Brain Networks
 
 Authors: Vijay D. Anand, Dakurah, S., Chung, M.K.
+University of Wisconsin-Madison
 
 The code performs the Hodge Laplacian based modeling of cycles in brain networks. 
 The code also performs various Hodge Laplacian based computations.  
