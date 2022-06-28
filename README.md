@@ -11,7 +11,7 @@ The script SIMULATION_Dakurah.2022.MICCAI.m reproduces the simulation study done
 
 Dakurah, S., Anand, D.V., Chung, M.K. 2022 Modeling Cycles in Brain Networks Using Hodge Laplacian
 Medical Image Computing and Computer Assisted Intervention (MICCAI) (received travel award). The paper can be downloaded from
-https://github.com/laplcebeltrami/hodge/dakurah.2021.MICCAI.pdf
+https://github.com/laplcebeltrami/hodge/dakurah.2022.MICCAI.pdf
 
 
 
