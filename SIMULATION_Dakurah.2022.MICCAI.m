@@ -103,13 +103,13 @@ observed_distance = max_stat(x, y);
 
 %% Remark: If you connect the statitic to existing 
 %% distances such as bottleneck and Wasserstein distance,
-%% there will be more impact
+%% there will be more impact.
 
 % p-value computation using the permutation test
 per_s = 10000;
 [stat_s, ~] = test_permute(x,y,per_s, @max_stat);
 pvalues = online_pvalues(stat_s, observed_distance);
-pvalend = pvalues(end)
+pvalend = pvalues(end) 
 
 %% Baseline codes will be distributed later. 
 
