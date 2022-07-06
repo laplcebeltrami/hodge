@@ -96,7 +96,7 @@ Gkcycle = Coeff;  %1176 (# of basis) x 20 (# of networks)
 x = Gkcycle(:,1:nGroup)';
 y = Gkcycle(:,nGroup+1:end)';
 
-%  Observed test statistic of equation(6)
+%Observed test statistic of equation (6)
 observed_distance = max_stat(x, y);
 
 % p-value computation using the permutation test
@@ -105,15 +105,18 @@ per_s = 10000;
 pvalues = online_pvalues(stat_s, observed_distance);
 pvalend = pvalues(end) 
 
-
-%------------
-%For baseline comparisions, we used the Euclidean distances such as L1, L2
-%and Linfity and Gromov-Hausdorff (GH) distances explaineed in
+%--------------
+% Baseline Comparision II (not reported in the MICCAI paper)
+% We used the Euclidean distances such as L1, L2 and Linfity and Gromov-Hausdorff (GH) 
+% distances on group avarge connectivity matrix as explaineed in
 % Chung, M.K., Lee, H. Ombao. H., Solo, V. 2019 Exact topological 
 % inference of the resting-state brain networks in twins, Network 
 % Neuroscience 3:674-694
 % https://pages.stat.wisc.edu/~mchung/papers/chung.2019.NN
-
+%
+% Given two groups of networks G1={A1, A2, ..., Am} and G2={B1, B2, ...Bn},
+% we tested the signifance of dist(A1+A2+...+Am)/m, (B1+B2+...+Bn)/n ),
+% where dist is L1, L2, L_infity and GH-distances. 
 
 %Vectorize collection of connectivity matrices into
 %the matrix of size # of networks x # of edges
@@ -150,13 +153,51 @@ pvalues = online_pvalues(stat_s, observed_distance);
 pvalend = pvalues(end) 
 
 %---------------
-%For baseline comparisions, we used the pairwise distances 
-%between networks as the test statistic. Similar method was introduced in 
-%Songdechakraiwut, T., Shen, L., Chung, M.K. 2021 Topological learning 
+%Baseline Comparision III (not reported in the MICCAI paper)
+%We used the sum of between-group pairwise distances. It is similar to the between-group 
+%loss defined in Songdechakraiwut, T., Shen, L., Chung, M.K. 2021 Topological learning 
 %and its application to multimodal brain network integration, MICCAI, 12902:166-176
 %https://pages.stat.wisc.edu/~mchung/papers/song.2021.MICCAI.pdf
+%
+% Given two groups of networks G1={A1, A2, ..., Am} and G2={B1, B2, ...Bn},
+% we tested the signifance of \sum_i \sum_j dist(A_i, B_j), where dist is L1, L2, L_infity. 
 
-%To be added. It will be performed two different ways. 
-%Traditional permutation test and transposition test. 
+x = cell2mat({g1{1, :}});
+y = cell2mat({g3{1, :}});
 
+%Baseline comparision using the between group L1-distance
+[stat_s, ~] = test_permute(x, y, per_s, @dist_L1between);
+observed_distance = dist_L1between(x, y);
+pvalues = online_pvalues(stat_s, observed_distance);
+pvalend = pvalues(end) 
+
+%Baseline comparision using the between groupL2-distance
+[stat_s, ~] = test_permute(x, y, per_s, @dist_L2between);
+observed_distance = dist_L2between(x, y);
+pvalues = online_pvalues(stat_s, observed_distance);
+pvalend = pvalues(end) 
+
+%Baseline comparision using the between Linf-distance
+[stat_s, ~] = test_permute(x, y, per_s, @dist_Linfbetween);
+observed_distance = dist_Linfbetween(x, y);
+pvalues = online_pvalues(stat_s, observed_distance);
+pvalend = pvalues(end) 
+
+%The permutation test on GH-distnace takes long time so it is not given and
+%not recommended.
+
+%------------
+%Baseline Comparision I (reported in the MICCAI paper)
+%We used the difference of the within-group distances. It is similar to the within-group 
+%loss defined in Songdechakraiwut, T., Shen, L., Chung, M.K. 2021 Topological learning 
+%and its application to multimodal brain network integration, MICCAI, 12902:166-176
+%https://pages.stat.wisc.edu/~mchung/papers/song.2021.MICCAI.pdf
+%
+% Given two groups of networks G1={A1, A2, ..., Am} and G2={B1, B2, ...Bn},
+% we tested the signifance of 
+% dist (G1,G2) = \sum_i \sum_j dist(A_i, A_j)/m(m-1) - \sum_i \sum_j dist(B_i, B_j)/n(n-1),
+% where dist is L1, L2, L_infity. In the permutation test, we randomly
+% swaps networks in G1 and G2 and recomputes the distnace.
+
+%Not implemented yet
 
