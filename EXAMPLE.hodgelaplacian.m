@@ -1,9 +1,15 @@
 % Example showing how to compute the Hodge Laplacian explained in
 %
-% Anand, D.V., Dakurah, S., Wang, B., Chung, M.K. 2021 
+% Anand, D.V., Dakurah, S., Chung, M.K. 2022 
 % Hodge-Laplacian of brain networks and its application to modeling cycles.
 % arXiv:2110.14599 
 % 
+% Dakurah, S., Anand, D.V., Chen, Z., Chung, M.K. 2022 Modeling cycles in
+% brain networks with the Hodge Laplacian, MICCAI LNCS 13431:326-335.
+%
+%https://github.com/laplcebeltrami/hodge/blob/main/dakurah.2022.MICCAI.pdf
+
+
 %% https://arxiv.org/pdf/2110.14599v1.pdf
 %% Version 1 of arXiv has detailed explanation of Figure 2 example in Page 8.
 %
