@@ -16,18 +16,19 @@ function [stat_s, time_s] = test_permute(x,y,per_s, stat)
 % y    : input vector data of size n x l (n= number of subjects, l=number of data per subject)
 % per_s: number of permutations
 % stat : test statitic as function. 
-%        example:
-%            KS-test  stat = inline('max(abs(mean(x)-mean(y)))');
-%            two-sample t-stat stat =
-%                     stat = inline('mean(x)-mean(y)).*sqrt(m*n*(m+n-2)./((m+n)*((m-1)*var(x)+(n-1)*var(y))))');
-%        If the test statistic is written as function like stat.m, need to
-%        call with @: [stat_s, ~] = test_permute(x,y,per_s, @max_stat);
-%     
-%
 %
 % OUTPUT
 % stat_s:  two-sample t-statistic of all permutations
 % time_s:  run time it took to compute the statistics
+%
+%
+% USAGE
+%        KS-test  stat = inline('max(abs(mean(x)-mean(y)))');
+%        two-sample t-stat stat =
+%                     stat = inline('mean(x)-mean(y)).*sqrt(m*n*(m+n-2)./((m+n)*((m-1)*var(x)+(n-1)*var(y))))');
+%        If the test statistic is written as function like stat.m, need to
+%        call with @: [stat_s, ~] = test_permute(x,y,per_s, @max_stat);
+%     
 %
 %
 % This code is downloaded from
@@ -41,6 +42,7 @@ function [stat_s, time_s] = test_permute(x,y,per_s, stat)
 % 2019 Jun 1 Chung created
 % 2021 Dec 5 Chung stat argument added
 % 2022 June 28 Sixtus checked the correctness of code
+% 2022 November 15 tested with Wasserstein distance on Hodge decomposition Chung
 
 tic
 
