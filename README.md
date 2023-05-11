@@ -11,7 +11,7 @@ A shorter MICCAI confernce version of the paper is published in
 
 Darkurah, S., Anand, D.V., Chen, Z., Chung, M.K., 2022 [odelling cycles in brain networks with the hodge Laplacian](https://github.com/laplcebeltrami/hodge/blob/main/dakurah.2022.MICCAI.pdf), MICCAI, LNCS 13431:326-355, which received travel awared as one of the best papers in the conference. 
 
-The script [SIMULATION_Dakurah.2022.MICCAI.m](https://github.com/laplcebeltrami/hodge/blob/main/SIMULATION_Dakurah.2022.MICCAI.m) reproduces the simulation study done in the ICCAI paper.
+The script [SIMULATION_Dakurah.2022.MICCAI.m](https://github.com/laplcebeltrami/hodge/blob/main/SIMULATION_Dakurah.2022.MICCAI.m) reproduces the simulation study done in the MICCAI paper.
 
 
 
