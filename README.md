@@ -9,7 +9,7 @@ Anand and Chung 2023 [Hodge Laplacian of Brain Networks](https://github.com/lapl
 The script [EXAMPLE.hodgelaplacian.m](https://github.com/laplcebeltrami/hodge/blob/main/EXAMPLE.hodgelaplacian.m) explains how to compute the eigenvectors of the Hodge Laplacin using Figure 2 example given in the paper. The script [SIMULATION_Anand.2022.TMI.m](https://github.com/laplcebeltrami/hodge/blob/main/SIMULATION_Anand.2022.TMI.m) performs the simulation study given in the Validation section of the paper. 
 A shorter MICCAI confernce version of the paper is published in 
 
-Darkurah, S., Anand, D.V., Chen, Z., Chung, M.K., 2022 [Modelling cycles in brain networks with the hodge Laplacian](https://github.com/laplcebeltrami/hodge/blob/main/dakurah.2022.MICCAI.pdf), MICCAI, LNCS 13431:326-355, which received travel awared as one of the best papers in the conference. 
+Darkurah, S., Anand, D.V., Chen, Z., Chung, M.K., 2022 [Modelling cycles in brain networks with the hodge Laplacian](https://github.com/laplcebeltrami/hodge/blob/main/dakurah.2022.MICCAI.pdf), MICCAI, LNCS 13431:326-355, which received the travel award as one of the best papers in the conference. 
 
 The script [SIMULATION_Dakurah.2022.MICCAI.m](https://github.com/laplcebeltrami/hodge/blob/main/SIMULATION_Dakurah.2022.MICCAI.m) reproduces the simulation study done in the MICCAI paper.
 
