@@ -2,9 +2,6 @@
 
 
 
-
-**Cycle modeling with Hodge Lapladcian**
-
 The code performs the Hodge Laplacian based modeling of cycles in brain networks. 
 The code also performs various Hodge Laplacian based computations published in 
 
@@ -18,8 +15,9 @@ Darkurah, S., Anand, D.V., Chen, Z., Chung, M.K., 2022 [Modelling cycles in brai
 The script [SIMULATION_Dakurah.2022.MICCAI.m](https://github.com/laplcebeltrami/hodge/blob/main/SIMULATION_Dakurah.2022.MICCAI.m) reproduces the simulation study done in the MICCAI paper.
 
 
+## Hodge Decomposition of Brain Networks
 
-The **Hodge-decomposition** is explained in Anan, D.V., Chung, M.K. 2024 [Hodge decomposition of brain networks](https://github.com/laplcebeltrami/hodge/blob/main/anand.2024.ISBI.pdf), ISBI. Poster version is available [here](https://github.com/laplcebeltrami/hodge/blob/main/anand.2024.ISBI.poster.pdf).
+The Hodge-decomposition is explained in Anan, D.V., Chung, M.K. 2024 [Hodge decomposition of brain networks](https://github.com/laplcebeltrami/hodge/blob/main/anand.2024.ISBI.pdf), ISBI. Poster version is available [here](https://github.com/laplcebeltrami/hodge/blob/main/anand.2024.ISBI.poster.pdf).
 
 
 
