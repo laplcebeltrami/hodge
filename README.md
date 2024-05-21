@@ -6,6 +6,8 @@ The Hodge-decomposition is explained in Anan, D.V., Chung, M.K. 2024 [Hodge deco
 (C) 2024 Vijay D. Anand,Chung, M.K.
 University of Wisconsin-Madison
 
+The project is funded in part by NIH MH133614.
+
 
 ## Hodge Laplacian of Brain Networks
 
