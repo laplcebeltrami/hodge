@@ -1,6 +1,6 @@
 ## Hodge Decomposition of Brain Networks
 
-The Hodge-decomposition is explained in Anan, D.V., Chung, M.K. 2024 [Hodge decomposition of brain networks](https://github.com/laplcebeltrami/hodge/blob/main/anand.2024.ISBI.pdf), ISBI. Poster version is available [here](https://github.com/laplcebeltrami/hodge/blob/main/anand.2024.ISBI.poster.pdf). The script [EXAMPLE-HodgeDecomposition.m](https://github.com/laplcebeltrami/hodge/blob/main/EXAMPLE-HodgeDecomposition.m) explains how to perform the Hodge Decomposition of a given connectivity matrix. 
+The Hodge-decomposition is explained in Anan, D.V., Chung, M.K. 2024 [Hodge decomposition of brain networks](https://github.com/laplcebeltrami/hodge/blob/main/anand.2024.ISBI.pdf), ISBI. Poster version is available [here](https://github.com/laplcebeltrami/hodge/blob/main/anand.2024.ISBI.poster.pdf). The script [Example-HodgeDecomposition.m](https://github.com/laplcebeltrami/hodge/blob/main/Example-HodgeDecomposition.m) explains how to perform the Hodge Decomposition of a given connectivity matrix. 
 
 
 (C) 2024 Vijay D. Anand,Chung, M.K.
