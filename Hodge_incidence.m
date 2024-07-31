@@ -82,7 +82,6 @@ for i = 1:nnodes
 end
 IncidenceMat{2} = boundaryMatrix1(:,:);
 
-
 boundaryMatrix2 = zeros(nedges,ntriangles);
 for i=1:nedges
     for j=1:ntriangles
@@ -93,10 +92,20 @@ for i=1:nedges
         if edges(i,1)>triangles(j,2)
             continue
         end
-        if ismembc(edges(i,:),triangles(j,:))
-            [~, omitedIndex] = find(ismembc(triangles(j,:), edges(i,:))==0);
-            boundaryMatrix2(i,j)=(-1)^mod(omitedIndex+1,2);
+
+        %if ismembc(edges(i,:),triangles(j,:))
+        %    [~, omitedIndex] = find(ismembc(triangles(j,:), edges(i,:))==0);
+        %    boundaryMatrix2(i,j)=(-1)^mod(omitedIndex+1,2);
+        %end
+
+        % Check if the edge is a member of the triangle
+        if any(edges(i, 1) == triangles(j, :)) && any(edges(i, 2) == triangles(j, :))
+            % Determine the orientation
+            [~, omittedIndex] = find(~ismember(triangles(j, :), edges(i, :)));
+            boundaryMatrix2(i, j) = (-1)^mod(omittedIndex + 1, 2);
         end
+
+
     end
 end
 IncidenceMat{3}=boundaryMatrix2(:,:);
