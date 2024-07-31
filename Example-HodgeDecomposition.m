@@ -17,19 +17,45 @@
 % OUTPUT: The gradient, curl and harmonic components Hodge Decomposition
 
 
-% INPUT : Connectivity Matrix, 5 node example
+% INPUT : Connectivity Matrix, 5 node example given in Figure 2 of ISBI paper
+%         This is same example given in Example 1 in https://arxiv.org/pdf/2110.14599v1
+
+
 % Load Data
-Y = [0.0    1.0    1.0    0.0    0.0;
-    -1.0    0.0    2.0    1.5    0.0;
-     1.0   -2.0    0.0    0.0    1.5;
-     0.0   -1.5    0.0    0.0    0.5;
-     0.0    0.0   -1.5   -0.5    0.0];
+%node 1      2      3      4      5
+Y = [0.0    1.0    1.0    0.0    0.0;  %1
+    -1.0    0.0    2.0    1.5    0.0;  %2
+    -1.0   -2.0    0.0    0.0    1.5;  %3 
+     0.0   -1.5    0.0    0.0    0.5;  %4
+     0.0    0.0   -1.5   -0.5    0.0]; %5 
+
 
 % Create k-Skeleton from the connectivity matrix
 kSkeleton = Hodge_2Skeleton(Y);
 
 % Create boundary matrices from the k-Skeleton 
 IncidenceMat= Hodge_incidence(kSkeleton);
+
+% IncidenceMat{2}
+% IncidenceMat{3}
+% 
+% ans =
+% 
+%     -1    -1     0     0     0     0
+%      1     0    -1    -1     0     0
+%      0     1     1     0    -1     0
+%      0     0     0     1     0    -1
+%      0     0     0     0     1     1
+% 
+% 
+% ans =
+% 
+%      1
+%     -1
+%      1
+%      0
+%      0
+%      0
 
 % Hodge decomposition to get components
 % Yvec - Vectorised Connectivity
@@ -38,6 +64,7 @@ IncidenceMat= Hodge_incidence(kSkeleton);
 
 Yvec = Hodge_vec(Y);
 [Yg, Yc, Yh] = Hodge_decompose(Yvec, IncidenceMat);
+[Yg, Yc, Yh, s,z] = Hodge_decompose(Yvec, IncidenceMat);
 
 %% VISUALIZATION
 
