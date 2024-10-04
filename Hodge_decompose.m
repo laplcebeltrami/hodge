@@ -31,11 +31,13 @@ function [varargout] = Hodge_decompose(Yvec, Bmat)
 %     2022 April 24, created Anand
 %     2022 Nov 15 comment Chung
 %     2024 July 30. 5 ouput option added
+%     2024 Oct 4 Boundary matrices are made into sparse matrix to save
+%     memory. These are very sparse.
 
+    d0 = sparse(Bmat{2}');
+    d1 = sparse(Bmat{3}');
 
-  d0 = Bmat{2}';
-    d1 = Bmat{3}';
-
+    
     % Hodge Laplacian matrix (L0) node-node
     L0 = (d0') * (d0);
 
