@@ -12,7 +12,9 @@ University of Wisconsin-Madison
 ## Hodge Laplacian of Brain Networks
 
 The code performs the Hodge Laplacian based modeling of cycles in brain networks. 
-The code also performs various Hodge Laplacian based computations published in 
+The code also performs various Hodge Laplacian based computations.
+
+References:
 
 Anand and Chung 2023 [Hodge Laplacian of Brain Networks](https://github.com/laplcebeltrami/hodge/blob/main/anand.2023.pdf), IEEE Transactions on Medical Imaging 42:1563-1573.
 
