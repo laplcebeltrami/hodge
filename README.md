@@ -1,3 +1,11 @@
+## Causality as Minimum Energy Principle
+
+
+
+(C) 2025 Chung, M.K.
+University of Wisconsin
+
+
 ## Hodge Decomposition of Brain Networks
 
 The Hodge-decomposition is explained in Anand, D.V., El-Yaagoubi, A.B., Ombao, H., Chung, M.K. 2025 [Hodge decomposition of functional brain networks](https://arxiv.org/pdf/2211.10542), arXiv:2211.10542. The paper provides extensive validation and comparisions. Run  SIMULATION hodgedecompose.m to duplicate the simulations in the paper.
