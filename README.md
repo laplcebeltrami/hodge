@@ -1,3 +1,9 @@
+## Hodge Laplacian Modeling of Cyclic Interaction
+
+Hanyang Ruan, Moo K. Chung, Willem B. Bruin, Nadza Dzinalija, ENIGMA OCD Working Group, Guido van Wingen, Paul M. Thompson, Dan J. Stein, Odile A. van den, Heuvel, Kathrin Koch, 2026 [Disrupted Higher-Order Topology in OCD Brain Networks Revealed by Hodge Laplacian – an ENIGMA Study](https://github.com/laplcebeltrami/hodge/blob/main/OHBM_2026_ENIGMA-OCD.pdf), OHBM absctract
+
+
+
 ## Hodge Decomposition of Brain Networks
 
 The Hodge-decomposition is explained in Anand, D.V., El-Yaagoubi, A.B., Ombao, H., Chung, M.K. 2025 [Hodge decomposition of functional brain networks](https://arxiv.org/pdf/2211.10542), arXiv:2211.10542. The paper provides extensive validation and comparisions. Run  SIMULATION hodgedecompose.m to duplicate the simulations in the paper.
