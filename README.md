@@ -1,9 +1,3 @@
-## Hodge Laplacian Model of Cyclic Interaction
-
-Hanyang Ruan, Moo K. Chung, Willem B. Bruin, Nadza Dzinalija, ENIGMA OCD Working Group, Guido van Wingen, Paul M. Thompson, Dan J. Stein, Odile A. van den, Heuvel, Kathrin Koch, 2026 [Disrupted Higher-Order Topology in OCD Brain Networks Revealed by Hodge Laplacian – an ENIGMA Study](https://github.com/laplcebeltrami/hodge/blob/main/OHBM_2026_ENIGMA-OCD.pdf), OHBM absctract
-
-
-
 ## Hodge Decomposition of Brain Networks
 
 The Hodge-decomposition is explained in Anand, D.V., El-Yaagoubi, A.B., Ombao, H., Chung, M.K. 2025 [Hodge decomposition of functional brain networks](https://arxiv.org/pdf/2211.10542), arXiv:2211.10542. The paper provides extensive validation and comparisions. Run  SIMULATION hodgedecompose.m to duplicate the simulations in the paper.
@@ -21,6 +15,8 @@ The code performs the Hodge Laplacian based modeling of cycles in brain networks
 The code also performs various Hodge Laplacian based computations.
 
 References:
+
+Hanyang Ruan, Moo K. Chung, Willem B. Bruin, Nadza Dzinalija, ENIGMA OCD Working Group, Guido van Wingen, Paul M. Thompson, Dan J. Stein, Odile A. van den, Heuvel, Kathrin Koch, 2026 [Disrupted Higher-Order Topology in OCD Brain Networks Revealed by Hodge Laplacian – an ENIGMA Study](https://github.com/laplcebeltrami/hodge/blob/main/OHBM_2026_ENIGMA-OCD.pdf), OHBM absctract
 
 Anand and Chung 2023 [Hodge Laplacian of Brain Networks](https://github.com/laplcebeltrami/hodge/blob/main/anand.2023.pdf), IEEE Transactions on Medical Imaging 42:1563-1573. The script [EXAMPLE.hodgelaplacian.m](https://github.com/laplcebeltrami/hodge/blob/main/EXAMPLE.hodgelaplacian.m) explains how to compute the eigenvectors of the Hodge Laplacin using Figure 2 example given in the paper. The script [SIMULATION_Anand.2022.TMI.m](https://github.com/laplcebeltrami/hodge/blob/main/SIMULATION_Anand.2022.TMI.m) performs the simulation study given in the Validation section of the paper. 
 
