@@ -1,4 +1,4 @@
-## Hodge Laplacian Modeling of Cyclic Interaction
+## Hodge Laplacian Model of Cyclic Interaction
 
 Hanyang Ruan, Moo K. Chung, Willem B. Bruin, Nadza Dzinalija, ENIGMA OCD Working Group, Guido van Wingen, Paul M. Thompson, Dan J. Stein, Odile A. van den, Heuvel, Kathrin Koch, 2026 [Disrupted Higher-Order Topology in OCD Brain Networks Revealed by Hodge Laplacian – an ENIGMA Study](https://github.com/laplcebeltrami/hodge/blob/main/OHBM_2026_ENIGMA-OCD.pdf), OHBM absctract
 
