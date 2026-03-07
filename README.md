@@ -1,6 +1,6 @@
 ## Counterfactual Analsysis of Brain Network Dynamics
 
-Chung, M.K., Maccotta, L., Struck, A. 2026, [Counterfactual analysis of brain network dynamics](https://github.com/laplcebeltrami/hodge/blob/main/chung.ISBI.2026.pdf), IEEE International Symposium on Biomedical Imaging (ISBI).
+Chung, M.K., Maccotta, L., Struck, A. 2026, [Counterfactual analysis of brain network dynamics](https://github.com/laplcebeltrami/hodge/blob/main/chung.ISBI.2026.pdf), IEEE International Symposium on Biomedical Imaging (ISBI). pages 1-5
 
 
 ## Hodge Decomposition of Brain Networks
