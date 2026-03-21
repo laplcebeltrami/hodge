@@ -33,12 +33,17 @@ function IncidenceMat=Hodge_incidence(kSkeleton)
 %     2024 July 30, error producing line corrected: 
 %                   boundaryMatrix1(i, j) = (-1)^mod(omittedIndex + 1, 2);
 
-
-
 B = PH_boundary(kSkeleton);
 
 IncidenceMat{2} = B{1};
-IncidenceMat{3} = B{2};
+if length(B) >= 2 % Corrected by Weixiao Wang <wwang987@uwo.ca>
+    IncidenceMat{3} = B{2};
+else
+    IncidenceMat{3} = [];  % no triangles in the skeleton
+end
+
+%IncidenceMat{2} = B{1};
+%IncidenceMat{3} = B{2};
 
 
 function B = PH_boundary(S)
