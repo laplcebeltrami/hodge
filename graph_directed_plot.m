@@ -1,4 +1,4 @@
-function Graph_directed_plot(coord, elist, weights)
+function p = graph_directed_plot(coord, elist, weights)
 % Graph_directed_plot  Plot a directed graph with given node coordinates,
 % edge list, and edge weights.
 %
@@ -10,17 +10,25 @@ function Graph_directed_plot(coord, elist, weights)
 %
 % OUTPUT
 %   A plotted directed graph.
-
-% -------- sanitize & validate inputs --------
-if nargin < 3, weights = []; end
-if ~isnumeric(coord) || size(coord,2) ~= 2
-    error('coord must be n-by-2 numeric array of [x y] positions.');
-end
-if ~isnumeric(elist) || size(elist,2) ~= 2
-    error('elist must be m-by-2 numeric array of [u v] indices.');
-end
+%   
+%
+% (c) 2025 Moo K. Chung
+% University of Wisconsin-Madison
+% mkchung@wisc.edu 
+% 
+% The code is downloaded from 
+% https://github.com/laplcebeltrami/hodge
+% If you are using the code, refernce one of Hodge papers listed in GitHub.  
+%
+% Update history: November 7, 2025
 
 % Ensure types/shapes that digraph accepts
+
+% Input formating
+
+
+color_edge='k';
+
 elist   = full(double(elist));
 Estart  = elist(:,1);
 Eend    = elist(:,2);
@@ -28,60 +36,44 @@ Eend    = elist(:,2);
 m = size(elist,1);
 n = size(coord,1);
 
-% Basic index checks
-if any(Estart < 1 | Estart > n | Eend < 1 | Eend > n | isnan(Estart) | isnan(Eend))
-    error('elist contains invalid node indices (must be integers in [1..size(coord,1)]).');
-end
 
 % Weights: make real, full, double column; default to ones if empty/mismatch
 if isempty(weights)
     weights = ones(m,1);
-else
-    weights = full(double(weights(:)));
-    if numel(weights) ~= m
-        warning('weights has length %d but elist has %d rows; using ones.', numel(weights), m);
-        weights = ones(m,1);
-    end
-    if ~isreal(weights)
-        warning('weights is complex; using real(weights).');
-        weights = real(weights);
-    end
-    if any(isnan(weights) | isinf(weights))
-        warning('weights contains NaN/Inf; replacing with zeros.');
-        bad = isnan(weights) | isinf(weights);
-        weights(bad) = 0;
-    end
 end
 
-% -------- build digraph --------
-G = digraph(Estart, Eend, weights);
+% build digraph 
+n = size(coord,1);                                   
+G = digraph(Estart, Eend, weights, n);                
 
-% Labels rounded for readability
-EWeights = round(G.Edges.Weight, 3);
+%G = graph(A) %MATLAB format of graph constructed as structued array
 
-% -------- plot --------
 p = plot(G, ...
-    'Layout', 'force', ...         % initial layout (will be overwritten by coords)
-    'EdgeLabel', EWeights, ...
-    'LineWidth', 3, ...
+    'Layout', 'force', ...
+    'LineWidth', 4, ...
     'NodeColor', [0 0 0], ...
-    'MarkerSize', 6, ...
-    'NodeFontSize', 14, ...
-    'EdgeFontSize', 14);
+    'MarkerSize', 10, ...
+    'NodeFontSize', 16, ...
+    'EdgeFontSize', 20,...
+     'ShowArrows', 'on', ...     
+    'ArrowSize', 15, ...
+    'ArrowPosition', 0.5);   
 
-% Set node coordinates
-p.XData = coord(:,1);
-p.YData = coord(:,2);
-
-% Arrow/edge style
-p.ArrowSize = 15;
-p.EdgeColor = 'k';
+%p.ArrowSize = 15;                                    
+p.EdgeColor = color_edge;
+%p.Marker = 'none';
 
 % Axes cosmetics
 ax = gca;
 set(ax, 'FontSize', 10, 'XTick', [], 'YTick', []);
 ax.XAxis.TickLength = [0 0];
 ax.YAxis.TickLength = [0 0];
-set(gcf, 'Position', [200 200 300 250]);
-end
 
+% Hide all built-in labels 
+%p.EdgeLabel = strings(m,1);
+p.EdgeLabel = string(G.Edges.Weight); 
+p.EdgeFontSize = 10;  % moderate
+%p.NodeLabel = string(1:n);    
+%p.NodeFontSize = 20;         
+
+end

@@ -34,7 +34,7 @@ Y = [0.0    1.0    1.0    0.0    0.0;  %1
 kSkeleton = Hodge_2Skeleton(Y);
 
 % Create boundary matrices from the k-Skeleton 
-IncidenceMat= Hodge_incidence(kSkeleton);
+IncidenceMat=  PH_boundary(kSkeleton);
 
 % IncidenceMat{2}
 % IncidenceMat{3}
@@ -64,7 +64,6 @@ IncidenceMat= Hodge_incidence(kSkeleton);
 
 Yvec = Hodge_vec(Y);
 [Yg, Yc, Yh] = Hodge_decompose(Yvec, IncidenceMat);
-[Yg, Yc, Yh, s,z] = Hodge_decompose(Yvec, IncidenceMat);
 
 %% VISUALIZATION
 
@@ -77,11 +76,10 @@ theta = 270;
 R = [cosd(theta) -sind(theta); sind(theta) cosd(theta)];
 vd = [xd yd];
 vc = vd*R;
-xc = vc(:,1);
-yc = vc(:,2);
+x = vc(:,1);
+y = vc(:,2);
+coord=[x y];
 
-%Node coordinate information
-coord=[xc yc]
 %Edge information
 elist = kSkeleton{1,2};
 
