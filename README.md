@@ -18,7 +18,8 @@ The code also performs various Hodge Laplacian based computations.
 
 References:
 
-Hanyang R., Chung, M.K., Bruin, W.B., Dzinalija, N., ENIGMA OCD Working Group, van Wingen, Thompson, P.M. Stein, D.J.,  van den Heuvel, O.A., Koch, K. 2026 [Disrupted Higher-Order Topology in OCD Brain Networks Revealed by Hodge Laplacian – an ENIGMA Study](https://github.com/laplcebeltrami/hodge/blob/main/OHBM_2026_ENIGMA-OCD.pdf), OHBM 2026 absctract
+Hanyang R., Chung, M.K., Bruin, W.B., Dzinalija, N., ENIGMA OCD Working Group, van Wingen, Thompson, P.M. Stein, D.J.,  van den Heuvel, O.A., Koch, K. 2026 [Disrupted Higher-Order Topology in OCD Brain Networks Revealed by Hodge Laplacian – an ENIGMA Study](https://github.com/laplcebeltrami/hodge/blob/main/OHBM_2026_ENIGMA-OCD.pdf), OHBM 2026 absctract, 
+
 [Disrupted Higher-Order Topology in OCD Brain Networks Revealed by Hodge Laplacian – an ENIGMA Study](https://www.biorxiv.org/content/10.64898/2026.03.04.709586v1.full.pdf), bioaXiv: https://doi.org/10.64898/2026.03.04.709586
 
 
