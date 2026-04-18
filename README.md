@@ -18,7 +18,9 @@ The code also performs various Hodge Laplacian based computations.
 
 References:
 
-Hanyang Ruan, Moo K. Chung, Willem B. Bruin, Nadza Dzinalija, ENIGMA OCD Working Group, Guido van Wingen, Paul M. Thompson, Dan J. Stein, Odile A. van den, Heuvel, Kathrin Koch, 2026 [Disrupted Higher-Order Topology in OCD Brain Networks Revealed by Hodge Laplacian – an ENIGMA Study](https://github.com/laplcebeltrami/hodge/blob/main/OHBM_2026_ENIGMA-OCD.pdf), OHBM absctract
+Hanyang R., Chung, M.K., Bruin, W.B., Dzinalija, N., ENIGMA OCD Working Group, van Wingen, Thompson, P.M. Stein, D.J.,  van den Heuvel, O.A., Koch, K. 2026 [Disrupted Higher-Order Topology in OCD Brain Networks Revealed by Hodge Laplacian – an ENIGMA Study](https://github.com/laplcebeltrami/hodge/blob/main/OHBM_2026_ENIGMA-OCD.pdf), OHBM 2026 absctract
+[Disrupted Higher-Order Topology in OCD Brain Networks Revealed by Hodge Laplacian – an ENIGMA Study](https://www.biorxiv.org/content/10.64898/2026.03.04.709586v1.full.pdf), bioaXiv: https://doi.org/10.64898/2026.03.04.709586
+
 
 Anand and Chung 2023 [Hodge Laplacian of Brain Networks](https://github.com/laplcebeltrami/hodge/blob/main/anand.2023.pdf), IEEE Transactions on Medical Imaging 42:1563-1573. The script [EXAMPLE.hodgelaplacian.m](https://github.com/laplcebeltrami/hodge/blob/main/EXAMPLE.hodgelaplacian.m) explains how to compute the eigenvectors of the Hodge Laplacin using Figure 2 example given in the paper. The script [SIMULATION_Anand.2022.TMI.m](https://github.com/laplcebeltrami/hodge/blob/main/SIMULATION_Anand.2022.TMI.m) performs the simulation study given in the Validation section of the paper. 
 
