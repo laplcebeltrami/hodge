@@ -1,4 +1,4 @@
-# Hodge Analysis of Brain Networks
+# Network Hodge Analysis of Brain Activity
 
 **MATLAB tools for decomposing network flows and characterizing cycles with the Hodge Laplacian.**
 
