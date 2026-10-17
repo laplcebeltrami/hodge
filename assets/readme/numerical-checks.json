@@ -1,0 +1,26 @@
+{
+  "nodes": 12,
+  "edges": 24,
+  "faces": 12,
+  "graph_nullity": 13,
+  "complex_nullity": 1,
+  "boundary_chain": 0,
+  "relative_reconstruction": 0,
+  "known_component_error": 1.8769419421689984E-15,
+  "harmonic_divergence": 5.0477770517568554E-16,
+  "harmonic_curl": 4.1567159998099036E-15,
+  "orthogonality": 7.1470607210244452E-16,
+  "energy_percent": [
+    40.000000000000028,
+    35.000000000000142,
+    25
+  ],
+  "quick_start": {
+    "reconstruction": 0,
+    "harmonic_divergence": 5.6610488670036757E-16,
+    "harmonic_curl": 2.2204460492503131E-16,
+    "harmonic_modes": 1
+  },
+  "matlab": "26.2.0.3386108 (R2026b)",
+  "source_commit": "6e95cf7ff09fb16a0c5ee4a25b8837b6ec3585cc"
+}
