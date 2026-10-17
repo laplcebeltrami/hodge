@@ -1,34 +1,106 @@
-## Harmonic Flows of Brain Networks
+# Hodge Analysis of Brain Networks
 
-Chung, M.K., Maccotta, L., Struck, A. 2026, [Counterfactual analysis of brain network dynamics](https://github.com/laplcebeltrami/hodge/blob/main/chung.ISBI.2026.pdf), IEEE International Symposium on Biomedical Imaging (ISBI). pages 1-5.
+**MATLAB tools for decomposing network flows and characterizing cycles with the Hodge Laplacian.**
 
+Brain connectivity matrices describe relationships between pairs of regions. Hodge analysis connects these measurements to the organization of the whole network: variation explained by node potentials, circulation around filled triangular faces, and circulation associated with unfilled loops. This repository provides the computational methods, worked examples, and simulation scripts accompanying our studies of brain network topology and dynamics.
 
-## Hodge Decomposition of Brain Networks
+![Eight-panel MATLAB example: a triangulated network with an open hole, its boundary matrices and Hodge Laplacian, the eigenvalue spectrum, and input, gradient, curl, and harmonic flows.](assets/readme/hodge-workflow.png)
 
-The Hodge-decomposition is explained in Anand, D.V., Chung, M.K. 2024 [Hodge decomposition of brain networks](https://github.com/laplcebeltrami/hodge/blob/main/anand.2024.ISBI.pdf), ISBI. This is the first paper on the Hodge decomposion for brain networks in literature. Poster version is available [here](https://github.com/laplcebeltrami/hodge/blob/main/anand.2024.ISBI.poster.pdf). Longer arXiv version is available at [arXiv:2211.10542](https://arxiv.org/pdf/2211.10542). The script [Example-HodgeDecomposition.m](https://github.com/laplcebeltrami/hodge/blob/main/Example-HodgeDecomposition.m) explains how to perform the Hodge Decomposition of a given connectivity matrix. Updated version of code with better visualization is given in live script [Example-HodgeDecomposition.mlx](https://github.com/laplcebeltrami/hodge/blob/main/EXAMPLE-HodgeDecomposition.mlx).
+**One network, complementary views.** A–D connect a 12-node network to its boundary operators and spectrum. The graph alone has 13 independent cycles; including its 12 triangular faces leaves one harmonic mode around the open hole. E–H decompose the same edge flow into gradient, curl, and harmonic components. Shading indicates filled faces, and arrow widths share one magnitude scale. This deterministic synthetic illustration was generated in MATLAB using the repository's functions; its 40% / 35% / 25% component energies were prescribed for demonstration. [Figure methods and numerical checks](assets/readme/FIGURE.md) · [Reproduction script](assets/readme/generate_readme_figure.m)
 
-(C) 2024 Vijay D. Anand,Chung, M.K.
-University of Wisconsin-Madison
+## What the package can do
 
+| Capability | Scientific use | Main functions / examples |
+|---|---|---|
+| Construct network complexes | Represent nodes, edges, and triangular interactions from a connectivity matrix. | [`Hodge_1Skeleton`](Hodge_1Skeleton.m), [`Hodge_2Skeleton`](Hodge_2Skeleton.m) |
+| Build boundary operators and Laplacians | Relate network topology to an edge-space linear operator and its spectrum. | [`Hodge_incidence`](Hodge_incidence.m), [`Hodge_laplacian`](Hodge_laplacian.m), [`EXAMPLE.hodgelaplacian.m`](EXAMPLE.hodgelaplacian.m) |
+| Separate network flows | Decompose an edge signal into gradient, curl, and harmonic components; optionally recover node and face potentials. | [`Hodge_decompose`](Hodge_decompose.m), [`Hodge_vec`](Hodge_vec.m) |
+| Extract cycle representations | Obtain null-space modes and construct graph-cycle bases using a spanning tree and non-tree edges. | [`Hodge_ker`](Hodge_ker.m), [`Hodge_kCycle`](Hodge_kCycle.m) |
+| Study differences between networks | Explore cycle-based group comparisons and permutation procedures in the accompanying research simulations. | [`SIMULATION_Anand.2022.TMI.m`](SIMULATION_Anand.2022.TMI.m), [`SIMULATION_Dakurah.2022.MICCAI.m`](SIMULATION_Dakurah.2022.MICCAI.m) |
+| Visualize network structure and flow | Display directed networks and simplicial complexes for inspecting results. | [`graph_directed_plot`](graph_directed_plot.m), [`digraph_plot`](digraph_plot.m), [`PH_rips_display`](PH_rips_display.m) |
 
-## Hodge Laplacian of Brain Networks
+## Interpreting the decomposition
 
-The code performs the Hodge Laplacian based modeling of cycles in brain networks. 
-The code also performs various Hodge Laplacian based computations.
+For a chosen simplicial complex, let $B_1$ be the node–edge boundary matrix and $B_2$ the edge–triangle boundary matrix. An edge-flow vector $x$ decomposes as
 
-References:
+$$x = \underbrace{B_1^\top s}_{\text{gradient}} + \underbrace{B_2 z}_{\text{curl}} + \underbrace{h}_{\text{harmonic}}, \qquad L_1 = B_1^\top B_1 + B_2 B_2^\top.$$
 
-Hanyang R., Chung, M.K., Bruin, W.B., Dzinalija, N., ENIGMA OCD Working Group, van Wingen, Thompson, P.M. Stein, D.J.,  van den Heuvel, O.A., Koch, K. 2026 [Disrupted Higher-Order Topology in OCD Brain Networks Revealed by Hodge Laplacian – an ENIGMA Study](https://github.com/laplcebeltrami/hodge/blob/main/OHBM_2026_ENIGMA-OCD.pdf), OHBM 2026 absctract, longer manuscript version: 
-[Disrupted Higher-Order Topology in OCD Brain Networks Revealed by Hodge Laplacian – an ENIGMA Study](https://www.biorxiv.org/content/10.64898/2026.03.04.709586v1.full.pdf), bioaXiv: https://doi.org/10.64898/2026.03.04.709586
+- **Gradient:** differences in node potentials describe flow associated with sources and sinks.
+- **Curl:** combinations of triangle boundaries describe local circulation around filled faces.
+- **Harmonic:** the remaining flow satisfies $B_1h=0$ and $B_2^\top h=0$, capturing circulation associated with unfilled loops.
 
+These components are orthogonal under the standard Euclidean inner product. Their interpretation depends on the selected edges and faces: filling a triangular cycle makes its circulation a curl component. In a graph with no filled faces, the curl component is zero and the harmonic subspace is the graph's cycle space.
 
-Anand and Chung 2023 [Hodge Laplacian of Brain Networks](https://github.com/laplcebeltrami/hodge/blob/main/anand.2023.pdf), IEEE Transactions on Medical Imaging 42:1563-1573. The script [EXAMPLE.hodgelaplacian.m](https://github.com/laplcebeltrami/hodge/blob/main/EXAMPLE.hodgelaplacian.m) explains how to compute the eigenvectors of the Hodge Laplacin using Figure 2 example given in the paper. The script [SIMULATION_Anand.2022.TMI.m](https://github.com/laplcebeltrami/hodge/blob/main/SIMULATION_Anand.2022.TMI.m) performs the simulation study given in the Validation section of the paper. 
+## Quick start in MATLAB
 
-A shorter MICCAI confernce version of the paper is published in 
-Darkurah, S., Anand, D.V., Chen, Z., Chung, M.K., 2022 [Modelling cycles in brain networks with the hodge Laplacian](https://github.com/laplcebeltrami/hodge/blob/main/dakurah.2022.MICCAI.pdf), MICCAI, LNCS 13431:326-355, which received the travel award as one of the best papers in the conference. The script [SIMULATION_Dakurah.2022.MICCAI.m](https://github.com/laplcebeltrami/hodge/blob/main/SIMULATION_Dakurah.2022.MICCAI.m) reproduces the simulation study done in the MICCAI paper.
+Download or clone this repository, set its folder as the MATLAB current folder, and run the example below. It uses a five-node network with one filled triangle and one unfilled loop.
 
-(C) 2022 Vijay D. Anand, Dakurah, S., Chen, Z., Chung, M.K.
-University of Wisconsin-Madison
+```matlab
+addpath(pwd);
 
+% Antisymmetric edge-flow matrix; zero diagonal.
+Y = [ 0    1    1    0    0;
+     -1    0    2    1.5  0;
+     -1   -2    0    0    1.5;
+      0   -1.5  0    0    0.5;
+      0    0   -1.5 -0.5  0];
 
+S = Hodge_2Skeleton(Y);
+I = Hodge_incidence(S);
+B = {I{2}, I{3}};                 % Node-edge and edge-triangle matrices.
+x = Hodge_vec(Y);                % Edge order matches S{2}.
+[g, c, h] = Hodge_decompose(x, B);
 
+L1 = B{1}' * B{1} + B{2} * B{2}';
+[U, lambda] = Hodge_ker(L1);      % Columns of U span the harmonic subspace.
+fprintf('Reconstruction error: %.3g\n', norm(x - g - c - h));
+fprintf('Number of harmonic modes: %d\n', size(U, 2));  % 1
+```
+
+**Boundary conventions.** `Hodge_incidence` returns $B_1$ and $B_2$ in cells 2 and 3; the current `Hodge_decompose` expects them in cells 1 and 2, so the example remaps them explicitly. `Hodge_laplacian(I)` computes the graph operator $B_1^\top B_1$; add $B_2B_2^\top$ as above when analyzing a complex with filled triangles. `Hodge_ker` uses an eigenvalue threshold of $10^{-5}$ to identify the kernel.
+
+**Input conventions.** Use a zero diagonal and consistent edge orientation. `Hodge_2Skeleton` uses nonzero connectivity to define edges and fills every three-node clique. `Hodge_vec` retains nonzero upper-triangular entries. When comparing observations on a fixed network, align all edge vectors to the same edge list, including edges whose observed flow is zero.
+
+The quick start and figure script were checked in **MATLAB R2026b** using core MATLAB. Some research simulations also require the **Statistics and Machine Learning Toolbox**. The original [Live Script](EXAMPLE-HodgeDecomposition.mlx) and [decomposition walkthrough](Example-HodgeDecomposition.m) provide additional context; some older walkthroughs reference companion helpers such as `PH_boundary` and `edgeflow2digraph` that are not standalone files in this repository. The quick start above uses the functions included here.
+
+## Reproduce the figure
+
+From the repository root:
+
+```matlab
+addpath(fullfile(pwd, 'assets', 'readme'));
+generate_readme_figure;
+```
+
+The script creates the single eight-panel PNG in `assets/readme/`, writes numerical checks beside it, and saves the underlying arrays in `build/readme/figure-data.mat`. It checks the boundary identity, expected nullities, reconstruction, agreement with the known components, orthogonality, and harmonic constraints. These checks validate the illustrated examples; the paper-specific simulation studies are separate workflows.
+
+## Publications and research examples
+
+### Harmonic flows of brain networks
+
+Chung, M.K., Maccotta, L., and Struck, A. (2026). **Counterfactual analysis of brain network dynamics.** IEEE International Symposium on Biomedical Imaging (ISBI), pp. 1–5. [Paper](chung.ISBI.2026.pdf)
+
+### Hodge decomposition of brain networks
+
+Anand, D.V., and Chung, M.K. (2024). **Hodge decomposition of brain networks.** ISBI. [Paper](anand.2024.ISBI.pdf) · [Poster](anand.2024.ISBI.poster.pdf)
+
+Anand, D. Vijay, El-Yaagoubi, A.B., Ombao, H., and Chung, M.K. **Hodge-Decomposition of Functional Brain Networks.** Extended manuscript. [arXiv:2211.10542](https://arxiv.org/abs/2211.10542)
+
+Examples: [MATLAB walkthrough](Example-HodgeDecomposition.m) · [Live Script](EXAMPLE-HodgeDecomposition.mlx)
+
+### Hodge Laplacian of brain networks
+
+**Disrupted Higher-Order Topology in OCD Brain Networks Revealed by Hodge Laplacian – an ENIGMA Study** (2026), ENIGMA OCD Working Group and collaborators. [OHBM abstract](OHBM_2026_ENIGMA-OCD.pdf) · [Preprint](https://doi.org/10.64898/2026.03.04.709586)
+
+Anand, D.V., and Chung, M.K. (2023). **Hodge Laplacian of Brain Networks.** *IEEE Transactions on Medical Imaging*, 42:1563–1573. [Paper](anand.2023.pdf) · [arXiv:2110.14599](https://arxiv.org/abs/2110.14599) · [Worked example](EXAMPLE.hodgelaplacian.m) · [Simulation study](SIMULATION_Anand.2022.TMI.m)
+
+Dakurah, S., Anand, D.V., Chen, Z., and Chung, M.K. (2022). **Modelling Cycles in Brain Networks with the Hodge Laplacian.** MICCAI, LNCS 13431. [Paper](dakurah.2022.MICCAI.pdf) · [Simulation study](SIMULATION_Dakurah.2022.MICCAI.m)
+
+Please cite the relevant method paper when using these codes or examples.
+
+## Credits and contact
+
+(C) 2024 Vijay D. Anand and Moo K. Chung, University of Wisconsin–Madison.  
+(C) 2022 Vijay D. Anand, S. Dakurah, Z. Chen, and Moo K. Chung, University of Wisconsin–Madison.
+
+For code maintenance and support: [mkchung@wisc.edu](mailto:mkchung@wisc.edu).
